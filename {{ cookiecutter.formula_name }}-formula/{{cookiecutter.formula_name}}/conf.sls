@@ -1,9 +1,9 @@
-{{ '{%' }} from "{{ cookiecutter.formula_name }}/map.jinja" import {{ cookiecutter.formula_name }}, {{ cookiecutter.formula_name }}_config with context {{ '%}' }}
+{{ '{%' }} from '{{ cookiecutter.formula_name }}/map.jinja' import {{ cookiecutter.formula_name }} with context {{ '%}' }}
 
 include:
   - {{ cookiecutter.formula_name }}
 
-{{ cookiecutter.formula_name }}-config:
+{{ cookiecutter.formula_name }}_config:
   file.managed:
     - name: {{ '{{' }} {{ cookiecutter.formula_name }}.conf_file {{ '}}' }}
     - source: salt://{{ cookiecutter.formula_name }}/templates/conf.jinja

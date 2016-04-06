@@ -1,6 +1,1 @@
-{% raw %}{# Template for a config file. Context object name: config #}
-[section]
-{% for key, value in config.items() %}
-{{ key }}={{ value }}
-{% endfor %}
-{% endraw %}
+{% from {{ cookiecutter.formula_name }}/map.jinja import {{ cookiecutter.formula_name }} with context %}
