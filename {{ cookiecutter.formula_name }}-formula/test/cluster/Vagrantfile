@@ -30,7 +30,7 @@ Vagrant.configure(2) do |config|
       end
 
       min.vm.provision :salt do |salt|
-        salt.minion_config = "conf/min#{m}"
+        salt.minion_config = "conf/minion"
         salt.minion_key = "keys/min#{m}.pem"
         salt.minion_pub = "keys/min#{m}.pub"
       end

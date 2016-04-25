@@ -1,3 +1,0 @@
-grains:
-  roles:
-    - {{ cookiecutter.formula_name }}
