@@ -1,18 +1,8 @@
-{{ '{%' }} import_yaml '{{ cookiecutter.formula_name }}/defaults.yaml' as default_settings {{ '%}' }}
+{{ '{%' }} import_yaml '{{ cookiecutter.formula_name }}/defaults.yaml' as defaults {{ '%}' }}
+{{ '{%' }} import_yaml '{{ cookiecutter.formula_name }}/oscodename.yaml' as oscodename_map {{ '%}' }}
 
-{{ '{%' }} set os_family_map = salt['grains.filter_by']({
-        'Debian': {},
-        'RedHat': {},
-  }, merge=salt['pillar.get']('{{ cookiecutter.formula_name }}:lookup')) {{ '%}' }}
+{{ '{%' }} set oscodename = salt['grains.filter_by'](oscodename_map, grain='oscodename') {{ '%}' }}
 
-{{ '{%' }} do default_settings.{{ cookiecutter.formula_name }}.update(os_family_map) {{ '%}' }}
+{{ '{%' }} do defaults.{{ cookiecutter.formula_name }}.update(oscodename) {{ '%}' }}
 
-{{ '{%' }} set {{ cookiecutter.formula_name }} = salt['pillar.get']( '{{ cookiecutter.formula_name }}', default_settings.{{ cookiecutter.formula_name }}, merge=True) {{ '%}' }}
-
-{## Variable manipulation ##}
-{{ '{%' }} set version_name = '{{ cookiecutter.formula_name }}_' + {{ cookiecutter.formula_name }}.version {{ '%}' }}
-
-{{ '{%' }} do {{ cookiecutter.formula_name }}.update({'version_name': version_name,
-                                                    })
-{{ '%}' }}
-
+{{ '{%' }} set {{ cookiecutter.formula_name }} = salt['pillar.get']( '{{ cookiecutter.formula_name }}', default=defaults.{{ cookiecutter.formula_name }}, merge=True) {{ '%}' }}
