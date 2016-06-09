@@ -1,7 +1,6 @@
-{% for x in cookiecutter.formula_name %}={% endfor %}
+====
 {{ cookiecutter.formula_name }}
-{% for x in cookiecutter.formula_name %}={% endfor %}
-
+====
 {{ cookiecutter.formula_short_description }}
 
 .. note::
@@ -9,6 +8,11 @@
     See the full `Salt Formulas installation and usage instructions
     <http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_.
 
+Features
+========
+
+Compatibility
+=============
 
 Available states
 ================
@@ -17,15 +21,15 @@ Available states
     :local:
 
 ``{{ cookiecutter.formula_name }}``
-{% for x in cookiecutter.formula_name %}-{% endfor %}----
+-----
+Sub1
+****
 
-TODO - add description of this state
+Running
+=======
 
-``{{ cookiecutter.formula_name }}.conf``
-{% for x in cookiecutter.formula_name %}-{% endfor %}---------
-
-TODO - add description of this state
-
+Ideas and future development
+============================
 
 Template
 ========
