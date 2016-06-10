@@ -1,1 +1,0 @@
-{{ cookiecutter.formula_name }}:
