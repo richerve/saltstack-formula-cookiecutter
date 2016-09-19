@@ -6,7 +6,7 @@ include:
 {{ cookiecutter.formula_name }}_config:
   file.managed:
     - name: {{ '{{' }} {{ cookiecutter.formula_name }}.conf_file {{ '}}' }}
-    - source: salt://{{ cookiecutter.formula_name }}/templates/conf.jinja
+    - source: salt://{{ cookiecutter.formula_name }}/files/{{cookiecutter.formula_name}}.conf.jinja
     - template: jinja
     - context:
       config: {{ '{{' }} {{ cookiecutter.formula_name }}_config {{ '}}' }}
