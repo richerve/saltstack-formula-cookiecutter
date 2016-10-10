@@ -3,8 +3,7 @@
 {{ cookiecutter.formula_name }}:
   pkg.installed:
     - pkgs: {{ '{{' }} {{ cookiecutter.formula_name }}.pkgs {{ '}}' }}
-  service:
-    - running
+  service.running:
     - name: {{ '{{' }} {{ cookiecutter.formula_name }}.service {{ '}}' }}
     - enable: True
     - require:
