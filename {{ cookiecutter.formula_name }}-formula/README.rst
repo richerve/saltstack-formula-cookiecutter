@@ -1,6 +1,7 @@
-====
+{%- for x in cookiecutter.formula_name %}={% endfor %}
 {{ cookiecutter.formula_name }}
-====
+{% for x in cookiecutter.formula_name %}={% endfor %}
+
 {{ cookiecutter.formula_short_description }}
 
 .. note::
@@ -21,9 +22,6 @@ Available states
     :local:
 
 ``{{ cookiecutter.formula_name }}``
------
-Sub1
-****
 
 Running
 =======
