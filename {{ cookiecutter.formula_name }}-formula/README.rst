@@ -4,16 +4,20 @@
 
 {{ cookiecutter.formula_short_description }}
 
-.. note::
-
-    See the full `Salt Formulas installation and usage instructions
-    <http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_.
-
 Features
 ========
 
-Compatibility
-=============
+Formula dependencies
+====================
+
+Default values
+==============
+
+`defaults.yaml`_
+
+.. _defaults.yaml: {{ cookiecutter.formula_name }}/defaults.yaml
+
+.. note:: All the values can be overriden in pillar using the same structure
 
 Available states
 ================
@@ -22,16 +26,27 @@ Available states
     :local:
 
 ``{{ cookiecutter.formula_name }}``
+--{% for x in cookiecutter.formula_name %}-{% endfor %}--
 
-Running
+Description
+
+- More info 1
+
+Pillar parameters
+*****************
+
+.. code:: yaml
+
+   {{ cookiecutter.formula_name }}:
+
+Example
 =======
 
-Ideas and future development
-============================
+.. code:: sh
 
-Template
-========
+   salt '*' state.apply {{ cookiecutter.formula_name }}
 
-This formula was created from a cookiecutter template.
+Saltstack formulas
+==================
 
-See https://github.com/richerve/saltstack-formula-cookiecutter.
+See the full `Salt Formulas installation and usage instructions <http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_.

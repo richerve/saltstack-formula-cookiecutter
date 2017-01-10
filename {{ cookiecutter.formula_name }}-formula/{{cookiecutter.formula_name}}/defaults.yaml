@@ -1,2 +1,3 @@
 {{ cookiecutter.formula_name }}:
-  prefix: /opt
+  user: {{ cookiecutter.formula_name }}
+  group: {{ cookiecutter.formula_name }}

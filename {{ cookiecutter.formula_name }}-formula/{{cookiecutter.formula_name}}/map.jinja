@@ -1,8 +1,7 @@
 {{ '{%' }} import_yaml '{{ cookiecutter.formula_name }}/defaults.yaml' as defaults {{ '%}' }}
+
 {{ '{%' }} import_yaml '{{ cookiecutter.formula_name }}/oscodename.yaml' as oscodename_map {{ '%}' }}
-
 {{ '{%' }} set oscodename = salt['grains.filter_by'](oscodename_map, grain='oscodename') {{ '%}' }}
-
 {{ '{%' }} do defaults.{{ cookiecutter.formula_name }}.update(oscodename) {{ '%}' }}
 
 {{ '{%' }} set {{ cookiecutter.formula_name }} = salt['pillar.get']( '{{ cookiecutter.formula_name }}', default=defaults.{{ cookiecutter.formula_name }}, merge=True) {{ '%}' }}
